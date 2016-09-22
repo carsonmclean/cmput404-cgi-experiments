@@ -13,6 +13,8 @@ if form.getvalue('user') == 'bob' and form.getvalue('password') == 'hunter2':
 
 # stdout is sent over HTTP to the browser
 print "Content-type: text/html"
+if loggedinok:
+    print "Set-Cookie: loggedin=true"
 print
 print "<HTML><BODY><H1>Hello, world!</H1>"
 # Using POST avoids putting name and password into query string/URL
