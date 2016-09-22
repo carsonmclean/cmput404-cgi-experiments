@@ -8,6 +8,11 @@ import json
 print "Content-type: text/html"
 print
 print "<HTML><BODY><H1>Hello, world!</H1>"
+print "<FORM method='GET'><INPUT name='user' />"
+print "  <INPUT name='password' type='password'>"
+print " <BUTTON type='submit'>Log in</BUTTON></FORM>"
+
+
 print "<P>Query String: " + os.environ['QUERY_STRING'] + "</P>"
 print "<P>Your browser is: " + os.environ['HTTP_USER_AGENT'] + "</P>"
 
