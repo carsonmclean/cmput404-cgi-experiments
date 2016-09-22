@@ -17,7 +17,8 @@ print " <BUTTON type='submit'>Log in</BUTTON></FORM>"
 
 print "<P>Query String: " + os.environ['QUERY_STRING'] + "</P>"
 print "<P>Your browser is: " + os.environ['HTTP_USER_AGENT'] + "</P>"
-print "<P>Standard Input is: " + sys.stdin.read(int(os.environ['CONTENT_LENGTH']))
+if os.environ['CONTENT_LENGTH']:
+    print "<P>Standard Input is: " + sys.stdin.read(int(os.environ['CONTENT_LENGTH']))
 
 # The webserver talks back to the CGI program with environment variables
 print cgi.print_environ()
