@@ -5,6 +5,8 @@ import os
 import json
 import sys
 
+form = cgi.FieldStorage()
+
 # stdout is sent over HTTP to the browser
 print "Content-type: text/html"
 print
@@ -17,9 +19,10 @@ print " <BUTTON type='submit'>Log in</BUTTON></FORM>"
 
 print "<P>Query String: " + os.environ['QUERY_STRING'] + "</P>"
 print "<P>Your browser is: " + os.environ['HTTP_USER_AGENT'] + "</P>"
-if os.environ['CONTENT_LENGTH']:
-    print "<P>Standard Input is: " + sys.stdin.read(int(os.environ['CONTENT_LENGTH']))
-
+print "<P>"
+print "User name was:  " + form.getvalue('user') + "."
+print "Password was: " + form.getvalue('password') + "."
+print "</P>"
 # The webserver talks back to the CGI program with environment variables
 print cgi.print_environ()
 
