@@ -6,6 +6,10 @@ import json
 import sys
 
 form = cgi.FieldStorage()
+loggedinok = False
+
+if form.getvalue('user') == 'bob' and form.getvalue('password') == 'hunter2':
+    loggedinok = True
 
 # stdout is sent over HTTP to the browser
 print "Content-type: text/html"
@@ -23,6 +27,10 @@ print "<P>"
 print "User name was:  " + form.getvalue('user') + "."
 print "Password was: " + form.getvalue('password') + "."
 print "</P>"
+if loggedinok:
+    print "<H2> LOG IN OK!</H2>"
+
+
 # The webserver talks back to the CGI program with environment variables
 print cgi.print_environ()
 
