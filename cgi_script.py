@@ -10,6 +10,8 @@ loggedinok = False
 
 if form.getvalue('user') == 'bob' and form.getvalue('password') == 'hunter2':
     loggedinok = True
+if 'loggedin=true' in os.environ['HTTP_COOKIE']:
+    loggedinok = True
 
 # stdout is sent over HTTP to the browser
 print "Content-type: text/html"
@@ -25,10 +27,7 @@ print " <BUTTON type='submit'>Log in</BUTTON></FORM>"
 
 print "<P>Query String: " + os.environ['QUERY_STRING'] + "</P>"
 print "<P>Your browser is: " + os.environ['HTTP_USER_AGENT'] + "</P>"
-print "<P>"
-print "User name was:  " + form.getvalue('user') + "."
-print "Password was: " + form.getvalue('password') + "."
-print "</P>"
+
 if loggedinok:
     print "<H2> LOG IN OK!</H2>"
 
