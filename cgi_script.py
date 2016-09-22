@@ -8,7 +8,8 @@ import json
 print "Content-type: text/html"
 print
 print "<HTML><BODY><H1>Hello, world!</H1>"
-print "<FORM method='GET'><INPUT name='user' />"
+# Using POST avoids putting name and password into query string/URL
+print "<FORM method='POST'><INPUT name='user' />"
 print "  <INPUT name='password' type='password'>"
 print " <BUTTON type='submit'>Log in</BUTTON></FORM>"
 
